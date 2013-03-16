@@ -10,6 +10,7 @@ import au.com.bytecode.opencsv.CSVReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 /**
  * Helper to the database, manages versions and creation
@@ -37,19 +38,28 @@ public class ProductDataSQLHelper extends SQLiteOpenHelper {
                 PRODUCTS_NAME + " string, " +
                 PRODUCTS_IMAGE + " string);";
         Log.d("com.shophurry.DataInsert", "onCreate: " + productsSql);
-        db.execSQL(productsSql);
+        db.beginTransaction();
+        try {
+            db.execSQL(productsSql);
+            insertData(db, "products.csv", "insert into products(name, image) values('%s','%s')");
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
 
-        insertData(db, "products.csv", "insert into products(name, image) values('%s','%s')");
         Log.d("com.shophurry.DataInsert", "Inserted Products Data successfully");
     }
 
     private void insertData(SQLiteDatabase db, String fileName, String sqlTemplate) {
         InputStream inputStream = getClass().getResourceAsStream(fileName);
         CSVReader csvReader = new CSVReader(new InputStreamReader(inputStream));
+        Log.d("com.shophurry.DataInsert", "Start Writing Data");
+
         try {
             String[] data;
             while ((data = csvReader.readNext()) != null) {
                 db.execSQL(String.format(sqlTemplate, data[0], data[1]));
+                Log.d("com.shophurry.DataInsert", "Wrote " + data[0]);
             }
         } catch (IOException e) {
             Log.wtf("com.shophurry.DataInsert", "onInsert:", e);
