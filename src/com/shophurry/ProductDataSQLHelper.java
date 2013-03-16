@@ -27,20 +27,20 @@ public class ProductDataSQLHelper extends SQLiteOpenHelper {
 
     public ProductDataSQLHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d("ProductDataSQLHelper", "Launching ProductDataSQLHelper");
+        Log.d("com.shophurry.ProductDataSQLHelper", "Launching ProductDataSQLHelper");
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DataInsert", "Starting DataInsert");
+        Log.d("com.shophurry.DataInsert", "Starting DataInsert");
         String productsSql = "create table if not exists " + PRODUCTS + "( " + PRODUCTS_ID + " integer primary key autoincrement, " +
                 PRODUCTS_NAME + " string, " +
                 PRODUCTS_IMAGE + " string);";
-        Log.d("DataInsert", "onCreate: " + productsSql);
+        Log.d("com.shophurry.DataInsert", "onCreate: " + productsSql);
         db.execSQL(productsSql);
 
         insertData(db, "products.csv", "insert into products(name, image) values('%s','%s')");
-        Log.d("DataInsert", "Inserted Products Data successfully");
+        Log.d("com.shophurry.DataInsert", "Inserted Products Data successfully");
     }
 
     private void insertData(SQLiteDatabase db, String fileName, String sqlTemplate) {
@@ -52,7 +52,7 @@ public class ProductDataSQLHelper extends SQLiteOpenHelper {
                 db.execSQL(String.format(sqlTemplate, data[0], data[1]));
             }
         } catch (IOException e) {
-            Log.wtf("DataInsert", "onInsert:", e);
+            Log.wtf("com.shophurry.DataInsert", "onInsert:", e);
         }
     }
 

@@ -25,7 +25,7 @@ public class TagsDataSQLHelper extends SQLiteOpenHelper {
 
     public TagsDataSQLHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        Log.d("TagsDataSQLHelper", "Launching TagsDataSQLHelper");
+        Log.d("com.shophurry.TagsDataSQLHelper", "Launching TagsDataSQLHelper");
     }
 
     @Override
@@ -33,11 +33,11 @@ public class TagsDataSQLHelper extends SQLiteOpenHelper {
         String tagsSql = "create table if not exists " + TAGS + "( " +
                 TAGS_PRODUCT_ID + " integer, " +
                 TAGS_NAME + " string);";
-        Log.d("DataInsert", "onCreate: " + tagsSql);
+        Log.d("com.shophurry.DataInsert", "onCreate: " + tagsSql);
         db.execSQL(tagsSql);
 
         insertData(db, "tags.csv", "insert into tags(product_id, tag_name) values(%d,'%s')");
-        Log.d("DataInsert", "Inserted Tags Data successfully");
+        Log.d("com.shophurry.DataInsert", "Inserted Tags Data successfully");
     }
 
     private void insertData(SQLiteDatabase db, String fileName, String sqlTemplate) {
@@ -49,7 +49,7 @@ public class TagsDataSQLHelper extends SQLiteOpenHelper {
                 db.execSQL(String.format(sqlTemplate, data[0], data[1]));
             }
         } catch (IOException e) {
-            Log.wtf("DataInsert", "onInsert:", e);
+            Log.wtf("com.shophurry.DataInsert", "onInsert:", e);
         }
     }
 
