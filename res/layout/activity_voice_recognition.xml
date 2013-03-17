@@ -13,13 +13,13 @@
     <ImageButton
             android:layout_width="242px"
             android:layout_height="64px"
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButtonType"
             android:src="@drawable/keysearch"
             android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"/>
     <ImageButton
             android:layout_width="240px"
             android:layout_height="64px"
-            android:id="@+id/imageButton1"
+            android:id="@+id/imageButtonVoice"
             android:src="@drawable/voicesearch"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"/>
@@ -37,7 +37,8 @@
             android:id="@+id/textQuery"
             android:layout_below="@+id/textWhat" android:layout_marginTop="20dp"
             android:layout_alignLeft="@+id/textWhat" android:layout_marginRight="10dp" android:editable="true"
-            android:enabled="true" android:hint="Blue comfort jeans around 1200 rupees " android:textSize="12dp"/>
+            android:enabled="true" android:hint="Blue comfort jeans around 1200 rupees " android:textSize="12dp"
+            android:textColor="#505050"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +50,7 @@
               android:editable="true"
               android:enabled="true" android:hint="Koramangala " android:textSize="12dp"
               android:layout_alignLeft="@+id/textWhat" android:layout_below="@+id/imageAround"
-              android:maxLines="1" android:layout_toLeftOf="@+id/findlocation"/>
+              android:maxLines="1" android:layout_toLeftOf="@+id/findlocation" android:textColor="#505050"/>
     <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="48dp"
@@ -60,21 +61,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageOrIn"
-            android:src="@drawable/in" android:layout_centerHorizontal="true" android:layout_below="@+id/location"/>
+            android:src="@drawable/in" android:layout_centerHorizontal="true" android:layout_below="@+id/location"
+            android:layout_marginTop="10dp"/>
     <SeekBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/kmsfromloc"
             android:layout_alignLeft="@+id/textWhat" android:layout_below="@+id/imageOrIn"
-            android:layout_alignRight="@+id/textQuery"/>
+            android:layout_alignRight="@+id/textQuery" android:max="20" android:progress="0"
+            android:layout_marginTop="5dp"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kms from my location"
-            android:id="@+id/frommyloc" android:layout_alignRight="@+id/textQuery" android:layout_below="@+id/kmsfromloc"/>
+            android:text="0 kms from my location"
+            android:id="@+id/textFromMyLoc" android:layout_alignRight="@+id/textQuery" android:layout_below="@+id/kmsfromloc"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/go" android:layout_centerHorizontal="true" android:layout_alignParentTop="false"
-            android:src="@drawable/go" android:layout_alignTop="@+id/frommyloc" android:layout_marginTop="30dp"/>
+            android:src="@drawable/go" android:layout_alignTop="@+id/textFromMyLoc" android:layout_marginTop="30dp"/>
 </RelativeLayout>

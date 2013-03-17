@@ -7,23 +7,38 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class VoiceRecognitionActivity extends Activity {
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
-    private Button mbtSpeak;
+    private ImageButton mbtSpeak;
     private Products products;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognition);
-        mbtSpeak = (Button) findViewById(R.id.btSpeak);
         products = new Products();
+
+        SeekBar seekBar = (SeekBar) findViewById(R.id.kmsfromloc);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                ((TextView) findViewById(R.id.textFromMyLoc)).setText(i + " kms from my location");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+        mbtSpeak = (ImageButton) findViewById(R.id.imageButtonVoice);
         checkVoiceRecognition();
     }
 
@@ -34,7 +49,6 @@ public class VoiceRecognitionActivity extends Activity {
                 RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);
         if (activities.size() == 0) {
             mbtSpeak.setEnabled(false);
-            mbtSpeak.setText("Voice recognizer not present");
             Toast.makeText(this, "Voice recognizer not present",
                     Toast.LENGTH_SHORT).show();
         }

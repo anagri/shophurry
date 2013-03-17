@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">shophurry</string>
-    <string name="btSpeak">Speak</string>
+    <string name="app_name">Source It</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_voice_recognition">Voice Recognition</string>
-    <string name="products_table_sql">
-        create table if not exists products (_id integer primary key autoincrement, name string, image string)
-    </string>
-    <string name="tags_table_sql">
-        create table if not exists tags (_id integer, name string)
-    </string>
 </resources>
