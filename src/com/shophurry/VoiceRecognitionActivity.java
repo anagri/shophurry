@@ -16,12 +16,14 @@ import java.util.List;
 public class VoiceRecognitionActivity extends Activity {
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private Button mbtSpeak;
+    private Products products;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognition);
         mbtSpeak = (Button) findViewById(R.id.btSpeak);
+        products = new Products();
         checkVoiceRecognition();
     }
 
