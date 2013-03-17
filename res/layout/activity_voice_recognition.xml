@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:orientation="vertical" >
+              android:orientation="vertical" android:background="#edebeb">
     <Button
             android:id="@+id/btSpeak"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="speak"
             android:text="@string/btSpeak"
-            tools:context=".VoiceRecognitionActivity" />
-</LinearLayout>
+            tools:context=".VoiceRecognitionActivity" android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" android:layout_marginTop="236dp"/>
+    <ImageView
+            android:layout_width="438dp"
+            android:layout_height="56dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/sourceit"
+            android:layout_alignLeft="@+id/btSpeak" android:layout_alignParentTop="true"/>
+    <ImageButton
+            android:layout_width="242px"
+            android:layout_height="64px"
+            android:id="@+id/imageButton"
+            android:src="@drawable/keysearch"
+            android:layout_alignLeft="@+id/btSpeak" android:layout_alignParentBottom="true"/>
+    <ImageButton
+            android:layout_width="240px"
+            android:layout_height="64px"
+            android:id="@+id/imageButton1"
+            android:src="@drawable/voicesearch"
+            android:layout_alignRight="@+id/btSpeak" android:layout_alignTop="@+id/imageButton"/>
+</RelativeLayout>
