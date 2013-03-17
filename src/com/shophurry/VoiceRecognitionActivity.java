@@ -15,14 +15,24 @@ import java.util.List;
 public class VoiceRecognitionActivity extends Activity {
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private ImageButton mbtSpeak;
-    private Products products;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognition);
-        products = new Products();
+        initSeekBar();
+        mbtSpeak = (ImageButton) findViewById(R.id.imageButtonVoice);
+        checkVoiceRecognition();
 
+        findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VoiceRecognitionActivity.this, SearchResultActivity.class));
+            }
+        });
+    }
+
+    private void initSeekBar() {
         SeekBar seekBar = (SeekBar) findViewById(R.id.kmsfromloc);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -38,8 +48,6 @@ public class VoiceRecognitionActivity extends Activity {
             public void onStopTrackingTouch(SeekBar seekBar) {
             }
         });
-        mbtSpeak = (ImageButton) findViewById(R.id.imageButtonVoice);
-        checkVoiceRecognition();
     }
 
     public void checkVoiceRecognition() {
