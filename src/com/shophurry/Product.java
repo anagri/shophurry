@@ -38,4 +38,28 @@ public class Product {
         this.price = price;
         this.tags = tags;
     }
+
+    public static List<Product> search(String queryString) {
+        String[] terms = queryString.split(" ");
+        ArrayList<Product> results = new ArrayList<Product>();
+        for (Product product : all) {
+            if (product.isRelevantTo(terms)) {
+                results.add(product);
+            }
+        }
+        return results;
+    }
+
+    private boolean isRelevantTo(String[] terms) {
+        for (String term : terms) {
+            term = term.trim();
+
+            if (term.isEmpty()) continue;
+
+            for (String tag : tags) {
+                if (term.contains(tag)) return true;
+            }
+        }
+        return false;
+    }
 }

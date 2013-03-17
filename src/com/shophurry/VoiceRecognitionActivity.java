@@ -27,9 +27,15 @@ public class VoiceRecognitionActivity extends Activity {
         findViewById(R.id.go).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VoiceRecognitionActivity.this, SearchResultActivity.class));
+                startSearchWith(((EditText) VoiceRecognitionActivity.this.findViewById(R.id.textQuery)).getText().toString().toLowerCase());
             }
         });
+    }
+
+    private void startSearchWith(String queryString) {
+        Intent intent = new Intent(this, SearchResultActivity.class);
+        intent.putExtra("queryString", queryString);
+        startActivity(intent);
     }
 
     private void initSeekBar() {
@@ -37,7 +43,7 @@ public class VoiceRecognitionActivity extends Activity {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                ((TextView) findViewById(R.id.textFromMyLoc)).setText(i + " kms from my location");
+                ((TextView) findViewById(R.id.textFromMyLoc)).setText(i + " kms away");
             }
 
             @Override
@@ -91,7 +97,8 @@ public class VoiceRecognitionActivity extends Activity {
 
                 if (!textMatchList.isEmpty()) {
                     String userText = textMatchList.get(0);
-                    showToastMessage(userText);
+                    showToastMessage("Showing Search Results for query: " + userText);
+                    startSearchWith(userText);
                 }
                 //Result code for various error.
             } else if (resultCode == RecognizerIntent.RESULT_AUDIO_ERROR) {
