@@ -4,4 +4,7 @@
     <string name="btSpeak">Speak</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_voice_recognition">Voice Recognition</string>
+    <string name="products_table_sql">
+        create table if not exists products (_id integer primary key autoincrement, name string, image string)
+    </string>
 </resources>

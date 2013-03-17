@@ -19,23 +19,17 @@ import java.util.List;
 public class VoiceRecognitionActivity extends Activity {
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private Button mbtSpeak;
-    private ProductDataSQLHelper database;
+    private DatabaseHelper database;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognition);
 
-        database = new ProductDataSQLHelper(this);
-
-        SQLiteDatabase readableDatabase = database.getReadableDatabase();
-        Cursor cursor = readableDatabase.rawQuery("SELECT name FROM products", new String[]{});
-        cursor.moveToFirst();
-        String firstProductName = cursor.getString(0);
-        ((TextView) findViewById(R.id.debug)).setText("Boom - " + firstProductName);
+        database = new DatabaseHelper(this);
 
         mbtSpeak = (Button) findViewById(R.id.btSpeak);
-//        checkVoiceRecognition();
+        checkVoiceRecognition();
     }
 
     public void checkVoiceRecognition() {
