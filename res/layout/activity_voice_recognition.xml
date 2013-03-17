@@ -7,7 +7,7 @@
     <ImageView
             android:layout_width="438dp"
             android:layout_height="56dp"
-            android:id="@+id/imageView"
+            android:id="@+id/imageBanner"
             android:src="@drawable/sourceit"
             android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
     <ImageButton
@@ -27,22 +27,54 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="What are you looking for ?"
-            android:id="@+id/textView"
+            android:id="@+id/textWhat"
             android:typeface="serif" android:textColor="#808080"
             android:layout_alignParentLeft="true" android:layout_marginLeft="13dp" android:layout_alignParentTop="true"
             android:layout_marginTop="80dp"/>
     <EditText
             android:layout_width="442dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
-            android:layout_below="@+id/textView" android:layout_marginTop="20dp"
-            android:layout_alignLeft="@+id/textView" android:layout_marginRight="10dp" android:editable="true"
+            android:id="@+id/textQuery"
+            android:layout_below="@+id/textWhat" android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/textWhat" android:layout_marginRight="10dp" android:editable="true"
             android:enabled="true" android:hint="Blue comfort jeans around 1200 rupees " android:textSize="12dp"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView1"
+            android:id="@+id/imageAround"
             android:src="@drawable/around"
             android:layout_alignParentLeft="true"
-            android:layout_alignTop="@+id/editText" android:layout_marginTop="50dp"/>
+            android:layout_alignTop="@+id/textQuery" android:layout_marginTop="50dp"/>
+    <EditText android:layout_width="368dp" android:layout_height="wrap_content" android:id="@+id/location"
+              android:editable="true"
+              android:enabled="true" android:hint="Koramangala " android:textSize="12dp"
+              android:layout_alignLeft="@+id/textWhat" android:layout_below="@+id/imageAround"
+              android:maxLines="1" android:layout_toLeftOf="@+id/findlocation"/>
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:id="@+id/findlocation"
+            android:src="@drawable/findlocation"
+            android:layout_alignRight="@+id/textQuery" android:layout_below="@+id/imageAround"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageOrIn"
+            android:src="@drawable/in" android:layout_centerHorizontal="true" android:layout_below="@+id/location"/>
+    <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/kmsfromloc"
+            android:layout_alignLeft="@+id/textWhat" android:layout_below="@+id/imageOrIn"
+            android:layout_alignRight="@+id/textQuery"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kms from my location"
+            android:id="@+id/frommyloc" android:layout_alignRight="@+id/textQuery" android:layout_below="@+id/kmsfromloc"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/go" android:layout_centerHorizontal="true" android:layout_alignParentTop="false"
+            android:src="@drawable/go" android:layout_alignTop="@+id/frommyloc" android:layout_marginTop="30dp"/>
 </RelativeLayout>
