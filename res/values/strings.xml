@@ -7,4 +7,7 @@
     <string name="products_table_sql">
         create table if not exists products (_id integer primary key autoincrement, name string, image string)
     </string>
+    <string name="tags_table_sql">
+        create table if not exists tags (_id integer, name string)
+    </string>
 </resources>

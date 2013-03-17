@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Log.e(LOG_TAG, "Creating Database");
         createAndPopulateTable(db, context.getString(R.string.products_table_sql), "products", "products.csv", "insert into products(name, image) values('%s','%s')");
+        createAndPopulateTable(db, context.getString(R.string.tags_table_sql), "tags", "tags.csv", "insert into tags(_id, name) values(%d,'%s')");
     }
 
     private void createAndPopulateTable(SQLiteDatabase db, String tableSql, String tableName, String csvFile, String sqlTemplate) {
