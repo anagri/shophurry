@@ -4,30 +4,45 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical" android:background="#edebeb">
-    <Button
-            android:id="@+id/btSpeak"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="speak"
-            android:text="@string/btSpeak"
-            tools:context=".VoiceRecognitionActivity" android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" android:layout_marginTop="236dp"/>
     <ImageView
             android:layout_width="438dp"
             android:layout_height="56dp"
             android:id="@+id/imageView"
             android:src="@drawable/sourceit"
-            android:layout_alignLeft="@+id/btSpeak" android:layout_alignParentTop="true"/>
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
     <ImageButton
             android:layout_width="242px"
             android:layout_height="64px"
             android:id="@+id/imageButton"
             android:src="@drawable/keysearch"
-            android:layout_alignLeft="@+id/btSpeak" android:layout_alignParentBottom="true"/>
+            android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"/>
     <ImageButton
             android:layout_width="240px"
             android:layout_height="64px"
             android:id="@+id/imageButton1"
             android:src="@drawable/voicesearch"
-            android:layout_alignRight="@+id/btSpeak" android:layout_alignTop="@+id/imageButton"/>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What are you looking for ?"
+            android:id="@+id/textView"
+            android:typeface="serif" android:textColor="#808080"
+            android:layout_alignParentLeft="true" android:layout_marginLeft="13dp" android:layout_alignParentTop="true"
+            android:layout_marginTop="80dp"/>
+    <EditText
+            android:layout_width="442dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText"
+            android:layout_below="@+id/textView" android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/textView" android:layout_marginRight="10dp" android:editable="true"
+            android:enabled="true" android:hint="Blue comfort jeans around 1200 rupees " android:textSize="12dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1"
+            android:src="@drawable/around"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/editText" android:layout_marginTop="50dp"/>
 </RelativeLayout>
