@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,15 +16,11 @@ import java.util.List;
 public class VoiceRecognitionActivity extends Activity {
     private static final int VOICE_RECOGNITION_REQUEST_CODE = 1001;
     private Button mbtSpeak;
-    private DatabaseHelper database;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice_recognition);
-
-        database = new DatabaseHelper(this);
-
         mbtSpeak = (Button) findViewById(R.id.btSpeak);
         checkVoiceRecognition();
     }
